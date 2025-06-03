@@ -44,7 +44,7 @@ This project is a **work in progress**. Initial goals:
 ---
 
 ## 📂 Repository Structure
-
+```plaintext
 .
 ├── vagabond_site/          # Wagtail project
 ├── blog/                   # Blog app
@@ -53,6 +53,7 @@ This project is a **work in progress**. Initial goals:
 ├── Dockerfile              # For Fly.io deployment
 ├── fly.toml                # Fly.io configuration
 └── README.md               # This file
+```
 
 ---
 
