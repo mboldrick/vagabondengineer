@@ -1,0 +1,74 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg-info/
+*.egg
+*.log
+*.sqlite3
+*.db
+
+# === Virtual Environments ===
+env/
+venv/
+.venv/
+
+# === Django/Wagtail Media Files (user uploads) ===
+media/*
+media/images/*
+media/original_images/*
+!media/.gitkeep
+!media/images/
+!media/images/.gitkeep
+!media/original_images/
+!media/original_images/.gitkeep
+
+# === Static Files ===
+/staticfiles/
+*.static/
+
+# === Django Migrations (optional)
+/**/migrations/
+!**/migrations/__init__.py
+
+# === Database files ===
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# === Docker ===
+*.pid
+*.tar
+*.bak
+*.tmp
+.dockerignore
+Dockerfile
+.docker-compose*
+
+# === Fly.io ===
+fly.toml
+.fly/
+*.vol  # If any volume mount metadata is written locally
+
+# === Node/npm (if using Tailwind or frontend tooling) ===
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# === macOS & Editor Files ===
+.DS_Store
+Thumbs.db
+
+# === VSCode (optional) ===
+.vscode/
+
+# === Test Output ===
+htmlcov/
+coverage.xml
+.pytest_cache/
+.tox/
