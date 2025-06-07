@@ -1,8 +1,27 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
 {% block body_class %}
     template-homepage
 {% endblock body_class %}
+
 {% block content %}
-    {{ page.body|richtext }}
+    <section>
+        <div>
+            <h1>{{ page.hero_heading }}</h1>
+            <p>{{ page.hero_tagline }}</p>
+
+            {% if page.hero_image %}
+                <div>{% image page.hero_image width-800 %}</div>
+            {% endif %}
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <h2>About Me</h2>
+            <div>{{ page.about_me | richtext }}</div>
+        </div>
+    </section>
 {% endblock content %}
