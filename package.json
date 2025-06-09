@@ -1,0 +1,27 @@
+{
+    "name": "vagabondengineer",
+    "version": "1.0.0",
+    "description": "This is the source code for [VagabondEngineer.com](https://vagabondengineer.com), the personal website of Mike Boldrick. The site includes a technical blog, travel stories, a portfolio of projects, and a contact form.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "tailwindcss -i assets/css/input.css -o static/css/styles.css --watch",
+        "build": "tailwindcss -i assets/css/input.css -o static/css/styles.css --minify"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mboldrick/vagabondengineer.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/mboldrick/vagabondengineer/issues"
+    },
+    "homepage": "https://github.com/mboldrick/vagabondengineer#readme",
+    "devDependencies": {
+        "@tailwindcss/cli": "^4.1.8",
+        "tailwindcss": "^4.1.8"
+    }
+}
