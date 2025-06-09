@@ -72,10 +72,3 @@ htmlcov/
 coverage.xml
 .pytest_cache/
 .tox/
-
-# Tailwind & PostCSS build output
-/frontend/node_modules/
-/frontend/package-lock.json
-/frontend/.parcel-cache/
-/frontend/dist/
-/frontend/*.log
