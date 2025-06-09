@@ -7,20 +7,21 @@
 {% endblock body_class %}
 
 {% block content %}
-    <section>
+    <section class="border-b-2 border-gray-200 pb-5">
         <div>
-            <h1>{{ page.hero_heading }}</h1>
-            <p>{{ page.hero_tagline }}</p>
+            <h1 class="text-7xl text-sky-600 text-center font-bold pb-8"
+                style="font-family: var(--font-edusahand)">{{ page.hero_heading }}</h1>
+            <p class="text-2xl text-sky-900 text-center italic">{{ page.hero_tagline }}</p>
 
             {% if page.hero_image %}
-                <div>{% image page.hero_image width-800 %}</div>
+                <div class="w-full">{% image page.hero_image width-800 class="mx-auto" %}</div>
             {% endif %}
         </div>
     </section>
 
     <section>
         <div>
-            <h2>About Me</h2>
+            <h2 class="text-3xl text-sky-600 text-center pb-2">About Me</h2>
             <div>{{ page.about_me | richtext }}</div>
         </div>
     </section>
