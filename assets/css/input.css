@@ -11,3 +11,10 @@
         font-family: var(--font-sans);
     }
 }
+
+/* Custom font for Edu SA Hand */
+@layer utilities {
+    .font-edusahand {
+        font-family: var(--font-edusahand);
+    }
+}
