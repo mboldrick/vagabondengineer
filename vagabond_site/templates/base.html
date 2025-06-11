@@ -44,16 +44,21 @@
     <body class="{% block body_class %}{% endblock body_class %}">
         {% wagtailuserbar %}
 
+        {% include "base/includes/header.html" %}
+
+        {# Main content area #}
         <div class="container mx-auto py-4 px-4 sm:px-6 lg:px-8">
             {% block content %}
             {% endblock content %}
-
-            {% include "base/includes/footer.html" %}
         </div>
+
+        {% include "base/includes/footer.html" %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/vagabond_site.js' %}"></script>
 
-        {% block extra_js %}{# Override this in templates to add extra javascript #}{% endblock %}
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock extra_js %}
     </body>
 </html>

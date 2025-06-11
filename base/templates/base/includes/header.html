@@ -1,0 +1,54 @@
+{% load wagtailcore_tags navigation_tags %}
+{% wagtail_site as current_site %}
+
+<header class="border-b-2 border-gray-600 bg-sky-100 py-4 px-4 mb-5 sm:px-6 lg:px-8">
+    {% get_site_root as site_root %}
+
+    <div class="flex justify-between items-center">
+        <a href="/"
+           data-header-logo
+           class="header-logo z-30 uppercase font-semibold text-xl"
+           aria-label="Go to the Wagtail Starter Kit homepage">{{ current_site.site_name|default:"Site name" }}</a>
+
+        <div class="flex md:hidden items-center gap-4">
+            <button class="z-30 button-menu-toggle"
+                    data-mobile-menu-toggle
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-label="Open navigation menu">
+                <span class="button-menu-toggle__line"></span>
+                <span class="button-menu-toggle__line"></span>
+                <span class="sr-only">Menu</span>
+            </button>
+        </div>
+
+        <nav aria-label="Primary" class="hidden md:block">
+            <ul class="flex gap-x-12 lg:gap-x-14">
+                {% comment %} <a href="{% pageurl site_root %}">Home</a> | {% endcomment %}
+                {% for menuitem in site_root.get_children.live.in_menu %}
+                    <li>
+                        <a class=" flex text-base items-center font-semibold {% if menuitem.title == page.title %}underline underline-offset-8{% endif %} decoration-[1.5px] hover:text-sky-600"
+                           href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
+                    </li>
+                {% endfor %}
+                <li class="flex items-center">
+                    <button data-toggle-search-panel
+                            type="button"
+                            aria-expanded="true"
+                            aria-controls="search-panel"
+                            aria-label="Show search overlay">
+                        <span class="sr-only">Search</span>
+                        {% include "icons/magnifying-glass.html" with class="fill-current w-5 h-5" %}
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="search-panel"
+         data-search-panel
+         class=" z-10 absolute hidden md:block invisible top-0 right-0 pt-24 w-full h-full bg-black bg-opacity-20 ">
+        {% include "components/search.html" with variant="search-panel" %}
+    </div>
+
+</header>
