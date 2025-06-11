@@ -22,6 +22,7 @@
     "homepage": "https://github.com/mboldrick/vagabondengineer#readme",
     "devDependencies": {
         "@tailwindcss/cli": "^4.1.8",
+        "@tailwindcss/typography": "^0.5.16",
         "tailwindcss": "^4.1.8"
     }
 }

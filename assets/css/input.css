@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
     --font-sans: InterVariable, sans-serif;
@@ -9,5 +10,39 @@
 @layer base {
     body {
         font-family: var(--font-sans);
+    }
+}
+
+/* Custom font for Edu SA Hand */
+@layer utilities {
+    .font-edusahand {
+        font-family: var(--font-edusahand);
+    }
+}
+
+/* Customize prose typography */
+@layer components {
+    .prose h1 {
+        @apply text-4xl font-bold text-gray-900;
+    }
+
+    .prose h2 {
+        @apply text-2xl font-semibold text-blue-800 mt-6 mb-2;
+    }
+
+    .prose h3 {
+        @apply text-xl font-semibold text-slate-900 mt-5 mb-1;
+    }
+
+    .prose a {
+        @apply text-sky-600 underline hover:text-sky-800;
+    }
+
+    .prose code {
+        @apply bg-slate-100 px-1 py-0.5 rounded text-sm;
+    }
+
+    .prose img {
+        @apply rounded-lg;
     }
 }

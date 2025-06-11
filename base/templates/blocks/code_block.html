@@ -1,0 +1,6 @@
+<figure class="my-6">
+    <pre><code class="language-{{ self.language }}">{{ self.code|linebreaksbr }}</code></pre>
+    {% if self.caption %}
+        <figcaption class="text-sm text-gray-500 mt-1 text-center">{{ self.caption }}</figcaption>
+    {% endif %}
+</figure>

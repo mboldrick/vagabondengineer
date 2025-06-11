@@ -1,0 +1,6 @@
+{% load wagtailimages_tags %}
+
+<figure class=" {% if self.alignment == 'left' %}md:float-left md:mr-6 {% elif self.alignment == 'right' %}md:float-right md:ml-6 {% else %}mx-auto block {% endif %} {% if self.width == '1/3' %} w-full md:w-1/3 {% elif self.width == '1/2' %} w-full md:w-1/2 {% elif self.width == '2/3' %} w-full md:w-2/3 {% else %} w-full {% endif %} mb-6 {% if self.alignment != 'center' %}clear-none{% endif %} ">
+    {% image self.image original class="rounded-lg" %}
+    {% if self.caption %}<figcaption class="text-sm italic text-gray-600 mt-1">{{ self.caption }}</figcaption>{% endif %}
+</figure>
