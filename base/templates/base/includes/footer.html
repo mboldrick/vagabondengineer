@@ -1,6 +1,6 @@
 {% load navigation_tags %}
 
-<footer class="border-2 border-gray-800 bg-sky-200 py-4 px-4 mt-5 sm:px-6 lg:px-8 text-center">
+<footer class="border-t-2 border-gray-600 bg-sky-100 py-4 px-4 mt-5 sm:px-6 lg:px-8 text-center">
     {% with linkedin_url=settings.base.NavigationSettings.linkedin_url github_url=settings.base.NavigationSettings.github_url mastodon_url=settings.base.NavigationSettings.mastodon_url twitter_url=settings.base.NavigationSettings.twitter_url instagram_url=settings.base.NavigationSettings.instagram_url %}
         {% if linkedin_url or github_url or mastodon_url or twitter_url or instagram_url %}
             {% if linkedin_url %}
