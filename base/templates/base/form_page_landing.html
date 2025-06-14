@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block body_class %}
+    template-formpage
+{% endblock body_class %}
+
+{% block content %}
+    <h1 class="text-2xl font-bold mb-4">{{ page.title }} Form Submission</h1>
+
+    <div>{{ page.thank_you_text | richtext }}</div>
+{% endblock content %}
