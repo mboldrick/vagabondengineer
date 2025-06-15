@@ -2,8 +2,7 @@ from django.db import models
 
 from wagtail.models import Page
 from wagtail.fields import RichTextField
-from wagtail.admin.panels import FieldPanel, MultiFieldPanel
-from wagtail.images.models import Image
+from wagtail.admin.panels import FieldPanel
 from wagtail.fields import StreamField
 
 from base.blocks import ContentBlock  # Import shared blocks from base
