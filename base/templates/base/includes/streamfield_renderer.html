@@ -1,0 +1,54 @@
+{% comment %}
+Renders each block in a StreamField with custom styling.
+Expected usage:
+  {% include "includes/streamfield_renderer.html" with blocks=page.body %}
+{% endcomment %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% for block in blocks %}
+    {% if block.block_type == "heading" %}
+        <h2 class="text-2xl font-bold my-6">{{ block.value }}</h2>
+
+    {% elif block.block_type == "paragraph" %}
+        <div class="prose max-w-none my-4">{{ block.value|richtext }}</div>
+
+    {% elif block.block_type == "image" %}
+        <div class="my-6">{% image block.value original class="rounded-lg shadow-md mx-auto" %}</div>
+
+    {% elif block.block_type == "blockquote" %}
+        <blockquote class="border-l-4 border-sky-400 pl-4 italic text-gray-600 my-6">
+            {{ block.value }}
+        </blockquote>
+
+    {% elif block.block_type == "code" %}
+        <pre class="bg-gray-800 text-white text-sm p-4 rounded overflow-auto my-6">
+      <code class="language-{{ block.value.language }}">
+        {{ block.value.code|linebreaksbr }}
+      </code>
+    </pre>
+
+    {% elif block.block_type == "video" %}
+        <div class="aspect-video my-6">{{ block.value|embed }}</div>
+
+    {% elif block.block_type == "button" %}
+        <div class="my-6">
+            <a href="{{ block.value.url }}"
+               class="inline-block bg-sky-600 text-white font-semibold py-2 px-4 rounded hover:bg-sky-700 transition">
+                {{ block.value.text }}
+            </a>
+        </div>
+
+    {% elif block.block_type == "youtube_embed" %}
+        <div class="aspect-video my-6">
+            <iframe class="w-full h-full"
+                    src="https://www.youtube-nocookie.com/embed/{{ block.value.video_id }}"
+                    frameborder="0"
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+    {% else %}
+        {{ block }} {# Fallback if no explicit handler #}
+    {% endif %}
+{% endfor %}

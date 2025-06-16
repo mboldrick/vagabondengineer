@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% include "includes/streamfield_renderer.html" with blocks=page.body %}
+
+{% block content %}
+    <article>
+        <h1>{{ page.title }}</h1>
+        {% if page.header_image %}
+            {% image page.header_image original %}
+        {% endif %}
+        <p class="text-gray-600 text-sm">{{ page.intro }}</p>
+        <div class="prose max-w-none">
+            {% for block in page.body %}{{ block }}{% endfor %}
+        </div>
+    </article>
+{% endblock content %}

@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "search",
     "base",
     "about",
+    "blog",
     "widget_tweaks",
     "wagtail.contrib.settings",
     "wagtail.contrib.forms",
