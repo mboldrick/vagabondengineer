@@ -1,5 +1,6 @@
 from wagtail import blocks
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.embeds.blocks import EmbedBlock
 
 
 class AlignedImageBlock(blocks.StructBlock):
@@ -64,7 +65,9 @@ class ClearFloatBlock(blocks.StaticBlock):
 
 
 class YouTubeEmbedBlock(blocks.StructBlock):
-    video_id = blocks.CharBlock(help_text="YouTube video ID (from URL)")
+    video_id = blocks.CharBlock(
+        help_text="Paste just the YouTube video ID (e.g., dQw4w9WgXcQ from https://www.youtube.com/watch?v=dQw4w9WgXcQ)"
+    )
 
     class Meta:
         template = "blocks/youtube_embed.html"
@@ -91,6 +94,7 @@ class CalloutBlock(blocks.StructBlock):
 
 
 class ContentBlock(blocks.StreamBlock):
+    heading = blocks.CharBlock(form_classname="full title")
     paragraph = blocks.RichTextBlock(
         features=[
             "h2",
@@ -118,5 +122,15 @@ class ContentBlock(blocks.StreamBlock):
     image = AlignedImageBlock()
     code = CodeBlock()
     clear = ClearFloatBlock()
+    blockquote = blocks.BlockQuoteBlock()
+    video = EmbedBlock()
     youtube = YouTubeEmbedBlock()
     callout = CalloutBlock()
+    button = blocks.StructBlock(
+        [
+            ("text", blocks.CharBlock()),
+            ("url", blocks.URLBlock()),
+        ],
+        icon="link",
+        label="Button",
+    )

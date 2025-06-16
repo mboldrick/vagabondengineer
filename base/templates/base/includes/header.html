@@ -27,7 +27,7 @@
                 {% comment %} <a href="{% pageurl site_root %}">Home</a> | {% endcomment %}
                 {% for menuitem in site_root.get_children.live.in_menu %}
                     <li>
-                        <a class=" flex text-base items-center font-semibold {% if menuitem.title == page.title %}underline underline-offset-8{% endif %} decoration-[1.5px] hover:text-sky-600"
+                        <a class="flex text-base items-center font-semibold decoration-[1.5px] hover:text-sky-400 hover:decoration-sky-400 {% if menuitem.title == page.title %}underline underline-offset-8{% endif %}"
                            href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
                     </li>
                 {% endfor %}
