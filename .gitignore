@@ -54,8 +54,8 @@ Dockerfile
 fly.toml
 .fly/
 *.vol  # If any volume mount metadata is written locally
+secrets
 
-# === Node/npm (if using Tailwind or frontend tooling) ===
 node_modules/
 npm-debug.log
 yarn-error.log
