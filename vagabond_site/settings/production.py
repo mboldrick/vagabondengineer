@@ -24,18 +24,18 @@ STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 DATABASES = {"default": dj_database_url.config(conn_max_age=600)}
 
 # Debugging and logging
-LOGGING = {
-    "version": 1,
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-        },
-    },
-    "root": {
-        "handlers": ["console"],
-        "level": "DEBUG",
-    },
-}
+# LOGGING = {
+#     "version": 1,
+#     "handlers": {
+#         "console": {
+#             "class": "logging.StreamHandler",
+#         },
+#     },
+#     "root": {
+#         "handlers": ["console"],
+#         "level": "DEBUG",
+#     },
+# }
 
 try:
     from .local import *
