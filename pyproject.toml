@@ -6,9 +6,11 @@ readme = "README.md"
 requires-python = ">=3.13.3"
 dependencies = [
     "boto3>=1.38.37",
+    "dj-database-url>=3.0.0",
     "django-storages>=1.14.6",
     "django-widget-tweaks>=1.5.0",
     "gunicorn>=23.0.0",
+    "psycopg2-binary>=2.9.10",
     "wagtail>=7.0",
 ]
 
