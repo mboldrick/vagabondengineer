@@ -55,6 +55,13 @@ fly.toml
 .fly/
 *.vol  # If any volume mount metadata is written locally
 secrets
+secrets-email
+
+# Environment Variables
+.env
+.env.local
+.env.development
+.env.production
 
 node_modules/
 npm-debug.log

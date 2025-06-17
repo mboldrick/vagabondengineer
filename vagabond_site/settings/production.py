@@ -40,6 +40,10 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Postgres settings
 DATABASES = {"default": dj_database_url.config(conn_max_age=600)}
 
+# For sending emails during development.
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# other settings for email are in base.py. Only the overridden settings are shown here.
+
 # Debugging and logging
 # LOGGING = {
 #     "version": 1,

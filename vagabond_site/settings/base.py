@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -167,9 +170,16 @@ STORAGES = {
 # can exceed this limit within Wagtail's page editor.
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10_000
 
+# For printing emails to the console during development.
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_HOST = os.environ["EMAIL_HOST"]
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT", 587))
+EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
+EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = os.environ["DEFAULT_FROM_EMAIL"]
 
 # Wagtail settings
-
 WAGTAIL_SITE_NAME = "vagabond_site"
 
 # Search
