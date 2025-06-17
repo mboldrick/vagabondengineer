@@ -1,8 +1,11 @@
 import os
 import dj_database_url
+
+# DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
 from .base import *
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(",")
 CSRF_TRUSTED_ORIGINS = os.environ.get("DJANGO_CSRF_TRUSTED_ORIGINS", "").split(",")
@@ -17,6 +20,15 @@ AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
 AWS_STORAGE_BUCKET_NAME = os.environ["AWS_STORAGE_BUCKET_NAME"]
 AWS_S3_REGION_NAME = os.environ.get("AWS_S3_REGION_NAME", "us-west-1")
 AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+AWS_LOCATION = "media"
+AWS_DEFAULT_ACL = None
+AWS_QUERYSTRING_AUTH = False
+MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
+WAGTAILIMAGES_IMAGE_MODEL = "wagtailimages.Image"
+STORAGES["default"]["BACKEND"] = "storages.backends.s3boto3.S3Boto3Storage"
+STORAGES["staticfiles"]["BACKEND"] = (
+    "whitenoise.storage.CompressedManifestStaticFilesStorage"
+)
 
 MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -24,7 +36,6 @@ MIDDLEWARE = [
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 # Postgres settings
 DATABASES = {"default": dj_database_url.config(conn_max_age=600)}
@@ -43,7 +54,7 @@ DATABASES = {"default": dj_database_url.config(conn_max_age=600)}
 #     },
 # }
 
-try:
-    from .local import *
-except ImportError:
-    pass
+# try:
+#     from .local import *
+# except ImportError:
+#     pass
