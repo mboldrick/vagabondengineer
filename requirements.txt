@@ -51,4 +51,5 @@ tqdm==4.67.1
 typing-extensions==4.14.0
 urllib3==2.4.0
 wagtail==7.0
+whitenoise==6.9.0
 willow==1.10.0
