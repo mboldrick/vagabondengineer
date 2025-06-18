@@ -45,4 +45,15 @@
     .prose img {
         @apply rounded-lg;
     }
+
+    /* Hamburger icon lines */
+    .button-menu-toggle__line {
+        display: block;
+        width: 24px;
+        height: 3px;
+        margin: 5px 0;
+        background: #222;
+        border-radius: 2px;
+        transition: all 0.3s;
+    }
 }

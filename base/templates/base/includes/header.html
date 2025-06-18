@@ -8,7 +8,7 @@
         <a href="/"
            data-header-logo
            class="header-logo z-30 uppercase font-semibold text-xl"
-           aria-label="Go to the Wagtail Starter Kit homepage">{{ current_site.site_name|default:"Site name" }}</a>
+           aria-label="Go to the homepage">{{ current_site.site_name|default:"Site name" }}</a>
 
         <div class="flex md:hidden items-center gap-4">
             <button class="z-30 button-menu-toggle"
@@ -16,6 +16,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"
                     aria-label="Open navigation menu">
+                <span class="button-menu-toggle__line"></span>
                 <span class="button-menu-toggle__line"></span>
                 <span class="button-menu-toggle__line"></span>
                 <span class="sr-only">Menu</span>
@@ -51,4 +52,26 @@
         {% include "components/search.html" with variant="search-panel" %}
     </div>
 
+    <nav aria-label="Mobile"
+         id="mobile-menu"
+         class="fixed inset-0 z-40 bg-white p-8 hidden md:hidden">
+        <ul class="flex flex-col gap-y-6">
+            {% for menuitem in site_root.get_children.live.in_menu %}
+                <li>
+                    <a class="text-lg font-semibold decoration-[1.5px] hover:text-sky-400 hover:decoration-sky-400"
+                       href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
+                </li>
+            {% endfor %}
+            <li>
+                <button data-toggle-search-panel
+                        type="button"
+                        aria-expanded="true"
+                        aria-controls="search-panel"
+                        aria-label="Show search overlay">
+                    <span class="sr-only">Search</span>
+                    {% include "icons/magnifying-glass.html" with class="fill-current w-5 h-5" %}
+                </button>
+            </li>
+        </ul>
+    </nav>
 </header>
